@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const citasFile = "./citas.json";
+const citasFile = "/config/workspace/InvuCitaBot/citas.json";
 
 export function read() {
     return fs.readFileSync(citasFile, { encoding: 'utf8', flag: 'r' });

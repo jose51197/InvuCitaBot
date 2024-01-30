@@ -1,10 +1,12 @@
-import puppeteer, { Page } from 'puppeteer';
-import secrets  from "../secrets.json"
+import { Page, launch } from 'puppeteer';
+
 
 export async function getInvuCitas() {
-    const browser = await puppeteer.connect({
-        browserWSEndpoint: `ws://${secrets.browserlessInstance}/`,
-    });      
+    const browser = await launch({
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        headless: "new"
+      });
+    
     const page = await browser.newPage();
     await page.goto('https://citas.invu.go.cr/tramite-cita');
     await Promise.all([

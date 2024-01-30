@@ -4,7 +4,6 @@ import { read, write } from "./citasFileManager";
 
 async function start() {
     const citas = await getInvuCitas();
-    // write(JSON.stringify(citas)); // Initial load
     let message = "";
     // Now some business logic
     if(!(read().toString() === JSON.stringify(citas))){
@@ -16,9 +15,9 @@ async function start() {
         }
         message += "Reporte Citas disponibles: \n";
         message += Array.from(citas).join("\n");
-        await sendMessage(message);
         write(JSON.stringify(citas));
+        await sendMessage(message);
     }
     process.exit();
 }
-start();
+start().catch(err => console.error(err));
