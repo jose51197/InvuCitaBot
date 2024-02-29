@@ -20,4 +20,4 @@ async function start() {
     }
     process.exit();
 }
-start().catch(err => console.error(err));
+start().catch(err => console.error(err)).finally(() => process.exit());

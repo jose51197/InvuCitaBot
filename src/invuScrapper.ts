@@ -3,7 +3,7 @@ import { Page, launch } from 'puppeteer';
 
 export async function getInvuCitas() {
     const browser = await launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions'],
         headless: "new"
       });
     
@@ -39,6 +39,7 @@ export async function getInvuCitas() {
         });
         return dateTimes;
     });
+    browser.close();
     return dateTimes;
 }
 
