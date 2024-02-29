@@ -18,6 +18,7 @@ async function start() {
         write(JSON.stringify(citas));
         await sendMessage(message);
     }
+    console.log("Execution finished");
     process.exit();
 }
 start().catch(err => console.error(err)).finally(() => process.exit());
